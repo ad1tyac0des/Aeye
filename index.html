@@ -9,9 +9,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="preloader w-full h-full overflow-hidden bg-black text-white  fixed top-0 left-0">
+        <div class="heading1 absolute w-full flex justify-between items-center border-b border-solid border-white px-6 py-3 lg:px-14 lg:py-4">
+            <h1 class="font-['Monument'] text-xl lg:text-3xl">Aeye</h1>
+            <div class="tagline hidden  sm:flex font-[Helvetica] uppercase">
+                <h3 class="border-r border-white px-2 leading-none tracking-wider font-light">Innovate</h3>
+                <h3 class="border-r border-white px-2 leading-none tracking-wider font-light">Collaborate</h3>
+                <h3 class=" px-2 leading-none tracking-wider font-thin">Create</h3>
+            </div>
+            <div class="heading2 absolute left-0 h-full flex justify-between items-center bg-white mix-blend-difference">
+            </div>
+        </div>
+        <div class="loader absolute right-0 bottom-0 text-white w-fit h-fit mr-6">
+            <div class="progress-text text-[30vw] lg:text-[15vw] text-white tracking-wide font-['Gilroy'] leading-none">0</div>
+        </div>
+
+    </div>
     <main class="w-full h-screen">
 
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 </html>
