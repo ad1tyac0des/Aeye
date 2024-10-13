@@ -28,7 +28,7 @@ var preloaderAnimation2 = function () {
     })
     gsap.to(preloader, {
         transform:"translateY(-100%)",
-        delay:2,
+        delay:1.7,
         ease:"power2.inOut",
         onComplete:function(){
             preloader.style.display = "none"
