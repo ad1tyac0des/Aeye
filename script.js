@@ -1,3 +1,14 @@
+function disableScroll(){
+    document.body.style.overflow = "hidden"
+    document.documentElement.style.overflow = "hidden"
+}
+
+function enableScroll(){
+    document.body.style.overflow = ""
+    document.documentElement.style.overflow = ""
+}
+
+
 // PRELOADER
 
 var preloader = document.querySelector(".preloader")
@@ -32,8 +43,10 @@ var preloaderAnimation2 = function () {
         ease:"power2.inOut",
         onComplete:function(){
             preloader.style.display = "none"
+            enableScroll()
         }
     })
+    
 }
 
 function counter() {
@@ -50,9 +63,13 @@ function counter() {
         if (count === 100) {
             clearInterval(progress)
             preloaderAnimation2()
+           
         }
     }, 60)
+  
+    
 }
 
 preloaderAnimation1()
 setTimeout(counter, 600)
+disableScroll()
