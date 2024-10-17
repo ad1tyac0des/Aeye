@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aeye</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -28,11 +28,13 @@
         </div>
     </div> -->
 
-    <main class="w-full h-screen overflow-x-hidden">
+    <main class="w-full h-screen">
         <!-- Landing Page -->
-        <section class="landing-page w-full h-full flex flex-col bg-zinc-950 text-white  px-3 ">
+        <section class="landing-page w-full h-full flex flex-col bg-zinc-950 text-white px-3">
             <nav class="navbar w-full py-3 px-3 sm:py-6 sm:px-10 flex justify-between items-center">
-                <h1 class="font-['Monument'] text-xl sm:text-2xl lg:text-4xl">Aeye</h1>
+                <h1 class="font-['Monument'] text-xl sm:text-2xl lg:text-4xl">
+                    Aeye
+                </h1>
                 <div class="links hidden md:flex md:gap-4 lg:gap-14 font-[Machina] rounded-sm px-6 py-2 bg-[#11111147]">
                     <a href="">Home</a>
                     <a href="#">About</a>
@@ -40,37 +42,49 @@
                     <a href="#">Resources</a>
                 </div>
                 <button
-                    class="button hidden md:block font-[Machina] text-[1.4vw] bg-white text-black rounded-sm px-5 py-1">Get
-                    Started</button>
-                <div class="menuIcon flex flex-col gap-1 pt-2 w-5 h-5 md:hidden ">
-                    <div class="line1 w-5 h-px bg-white "></div>
-                    <div class="line2 w-5 h-px bg-white "></div>
+                    class="button hidden md:block font-[Machina] text-[1.4vw] bg-white text-black rounded-sm px-5 py-1">
+                    Get Started
+                </button>
+                <div class="menuIcon flex flex-col gap-1 pt-2 w-5 h-5 md:hidden">
+                    <div class="line1 w-5 h-px bg-white"></div>
+                    <div class="line2 w-5 h-px bg-white"></div>
                 </div>
             </nav>
             <div class="landing-content w-full relative grow flex flex-col items-center justify-center text-center">
-                <h1 class="font-[Helvetica] text-6xl leading-none uppercase lg:w-8/12 2xl:text-[5.5vw]  ">Build Epic
-                    AI/ML & Web Apps With Us</h1>
+                <h1 class="font-[Helvetica] text-6xl leading-none uppercase lg:w-8/12 2xl:text-[5.5vw]">
+                    Build Epic AI/ML & Web Apps With Us
+                </h1>
                 <p
                     class="font-[Helvetica] text-lg lg:text-lg leading-none mt-6 mb-8 text-zinc-400 lg:tracking-wider lg:w-4/12 sm:w-6/12 2xl:text-2xl 2xl:leading-none">
-                    Unite to innovate and build something extraordinary together</p>
+                    Unite to innovate and build something extraordinary together
+                </p>
                 <button
-                    class="font-[Machina] uppercase text-lg lg:text-xl 2xl:text-3xl bg-white text-black rounded-sm px-5 py-1 pt-2 lg:pt-2 lg:pb-2 lg:px-6 2xl:py-2 2xl:px-6 ">Join
-                    Us</button>
+                    class="font-[Machina] uppercase text-lg lg:text-xl 2xl:text-3xl bg-white text-black rounded-sm px-5 py-1 pt-2 lg:pt-2 lg:pb-2 lg:px-6 2xl:py-2 2xl:px-6">
+                    Join Us
+                </button>
                 <span class="text-[#999898] absolute bottom-3 opacity-30 2xl:text-xl">scroll to explore</span>
-
             </div>
         </section>
 
         <!-- Engage Page -->
-        <section class="engage-page w-full min-h-screen bg-zinc-950 pt-[.1px]">
+        <section class="engage-page w-full min-h-[200vh] bg-zinc-950 pt-[.1px]">
             <div class="engage-page-top w-[100%] md:w-[90%] h-fit md:h-[100vh] mx-auto flex items-center mt-14 md:mt-0">
                 <div class="engage-page-top-content w-full h-fit px-2 md:px-10 text-zinc-100">
-                    <h5 class="font-[Machina] text-[3.7vw] md:text-[2.7vw] xl:text-[1.5vw] px-2 md:px-5 xl:px-10">Make
-                        an impact</h5>
+                    <h5 class="font-[Machina] text-[3.7vw] md:text-[2.7vw] xl:text-[1.5vw] px-2 md:px-5 xl:px-10">
+                        Make an impact
+                    </h5>
                     <h1
                         class="font-[Helvetica] text-[20vw] md:text-[16vw] uppercase leading-none tracking-tighter md:tracking-normal mt-5">
                         <span class="text-[#A0A0A0]">Get</span> Involved
                     </h1>
+                </div>
+            </div>
+
+            <div class="engage-page-bottom h-[500vh] bg-zinc-950">
+                <div class="engage-page-bottom-content sticky top-0 w-full h-screen overflow-hidden">
+                    <div class="horizontail-scroll-section absolute top-0 h-full w-[500vw] will-change-transform flex items-center justify-between gap-8 px-4">
+                        <!-- Cards injected here -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -78,7 +92,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
         integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
 </body>
 
 </html>
