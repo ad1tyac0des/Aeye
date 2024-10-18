@@ -292,3 +292,5 @@ function textFadeEffect() {
         },
     });
 }
+
+textFadeEffect();
