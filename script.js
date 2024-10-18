@@ -68,12 +68,12 @@ function prealoder() {
     disableScroll();
 }
 
-prealoder();
+// prealoder();
 
 // HORIZONTAL SCROLL
 
 function scrollHorizontal() {
-    const stickySection = document.querySelector(".engage-page-bottom-content");
+    const stickySection = document.querySelector(".engage-page-middle-content");
     const horizontalScrollSection = stickySection.querySelector(
         ".horizontail-scroll-section"
     );
@@ -268,3 +268,27 @@ function aboutPageCards() {
 }
 
 aboutPageCards();
+
+// TEXT FADE EFFECT
+
+function textFadeEffect() {
+    let para = document.querySelector(".engage-page-bottom p");
+    const paraContent = para.textContent;
+
+    para.innerHTML = paraContent
+        .split("")
+        .map((char) => `<span>${char}</span>`)
+        .join("");
+
+    gsap.to(".engage-page-bottom>p>span", {
+        color: "#fff",
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: ".engage-page-bottom>p",
+            start: "top 85%",
+            end: "bottom 60%",
+            // markers: true,
+            scrub: 0.6,
+        },
+    });
+}
