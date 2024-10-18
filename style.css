@@ -14,3 +14,16 @@
 ::-webkit-scrollbar-thumb{
     background-color: #929292;
 }
+
+.scroller-inline{
+    animation: scroller 20s linear infinite;
+}
+
+@keyframes scroller {
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(calc(-100% - 4px));
+    }
+}
