@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
@@ -32,18 +32,18 @@
     </div>
     <main class="w-full h-screen">
         <!-- Landing Page -->
-        <section class="landing-page w-full h-[93%] md:h-full flex flex-col bg-zinc-950 text-white px-3">
+        <section id="home" class="landing-page w-full h-[93%] md:h-full flex flex-col bg-zinc-950 text-white px-3">
             <canvas id="backgroundCanvas" class="absolute inset-0 w-full h-full pointer-events-none"
                 aria-hidden="true"></canvas>
             <nav class="navbar w-full py-3 px-3 sm:py-6 sm:px-10 flex justify-between items-center relative z-10">
-                <h1 class="font-['Monument'] text-xl sm:text-2xl lg:text-4xl">
+                <h1 class="font-['Monument'] text-xl sm:text-2xl lg:text-4xl cursor-pointer">
                     Aeye
                 </h1>
                 <div class="links hidden md:flex md:gap-4 lg:gap-14 font-[Machina] rounded-sm px-6 py-2 bg-[#11111147]">
-                    <a href="">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Engage</a>
-                    <a href="#">Resources</a>
+                    <a class="hover:text-zinc-300 transition-colors duration-200" href="#home">Home</a>
+                    <a class="hover:text-zinc-300 transition-colors duration-200" href="#about">About</a>
+                    <a class="hover:text-zinc-300 transition-colors duration-200" href="#engage">Engage</a>
+                    <a class="hover:text-zinc-300 transition-colors duration-200" href="#news">News</a>
                 </div>
                 <button
                     class="button-effect-1 button hidden md:block font-[Gilroy] font-normal text-[1.4vw] text-white rounded-full border border-white px-5 py-0.5">
@@ -73,7 +73,7 @@
         </section>
 
         <!-- About Page -->
-        <section class="about-page w-full min-h-full bg-zinc-950 text-white relative">
+        <section id="about" class="about-page w-full min-h-full bg-zinc-950 text-white relative">
             <div class="about-page-top relative py-[10vw]">
                 <div class="scroller whitespace-nowrap overflow-x-hidden">
                     <div class="scroller-inline inline-block whitespace-nowrap">
@@ -144,7 +144,7 @@
         </section>
 
         <!-- Engage Page -->
-        <section class="engage-page w-full min-h-[200vh] bg-zinc-950 pt-[.1px] ">
+        <section id="engage" class="engage-page w-full min-h-[200vh] bg-zinc-950 pt-[.1px] ">
             <div class="engage-page-top w-[100%] md:w-[90%] h-fit md:h-[100vh] mx-auto flex items-center mt-14 md:mt-0">
                 <div class="engage-page-top-content w-full h-fit px-2 md:px-10 text-zinc-100">
                     <h5 class="font-[Machina] text-[3.7vw] md:text-[2.7vw] xl:text-[1.5vw] px-2 md:px-5 xl:px-10">
@@ -175,7 +175,7 @@
         </section>
 
         <!-- Subscription Page -->
-        <section
+        <section id="news"
             class="subscription-page h-fit md:h-screen w-full px-3 sm:px-8 md:px-0 py-10 sm:py-14 md:pt-10 bg-zinc-100 md:bg-black">
 
             <div
