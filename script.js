@@ -1,17 +1,18 @@
 // PRELOADER
+
+function disableScroll() {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+}
+
+function enableScroll() {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+}
+
 function prealoder() {
     var preloader = document.querySelector(".preloader");
     var progressText = document.querySelector(".progress-text");
-
-    function disableScroll() {
-        document.body.style.overflow = "hidden";
-        document.documentElement.style.overflow = "hidden";
-    }
-
-    function enableScroll() {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
-    }
 
     var preloaderAnimation1 = function () {
         gsap.from(".heading1", {
@@ -68,7 +69,67 @@ function prealoder() {
     disableScroll();
 }
 
-// prealoder();
+prealoder();
+
+//MENU PAGE ANIMATION
+
+function menuPageAnimation() {
+    var menuPg = document.querySelector(".menu-page");
+    var menuIcon = document.querySelector(".menu-icon");
+    var menuLines = document.querySelectorAll(".lines");
+    var navHeader = document.querySelector(".nav-header");
+    var links = document.querySelectorAll(".menu-page-links");
+    var socialLinks = document.querySelectorAll(".menu-social-links");
+
+    var isMenuVisible = false;
+
+    menuIcon.addEventListener("click", function () {
+        if (isMenuVisible) {
+            links.forEach((link) => (link.style.opacity = 0)); // Iterate over NodeList
+            socialLinks.forEach((link) => (link.style.opacity = 0)); // Iterate over NodeList
+            menuPageOpenAnimation();
+            enableScroll();
+            menuIcon.classList.remove("rotateMenuIcon");
+        } else {
+            menuPg.style.display = "flex"; // Ensure the menu is visible
+            links.forEach((link) => (link.style.opacity = 1)); // Iterate over NodeList
+            socialLinks.forEach((link) => (link.style.opacity = 1)); // Iterate over NodeList
+            menuPageCloseAnimation();
+            disableScroll();
+            navHeader.style.color = "black";
+            menuIcon.classList.add("rotateMenuIcon");
+            menuLines.forEach(function (elem) {
+                elem.style.backgroundColor = "black";
+            });
+        }
+        isMenuVisible = !isMenuVisible;
+    });
+
+    function menuPageOpenAnimation() {
+        gsap.to(menuPg, {
+            y: "-100%",
+            duration: 0.5,
+            ease: "power1.inOut",
+            onComplete: function () {
+                menuPg.style.display = "none"; // Ensure the menu is hidden
+                menuLines.forEach(function (elem) {
+                    elem.style.backgroundColor = "white";
+                });
+                navHeader.style.color = "white";
+            },
+        });
+    }
+
+    function menuPageCloseAnimation() {
+        gsap.fromTo(
+            menuPg,
+            { y: "-100%", opacity: 0 }, // Start state
+            { y: "0%", opacity: 1, duration: 0.5, ease: "power1.inOut" } // End state
+        );
+    }
+}
+
+menuPageAnimation();
 
 // HORIZONTAL SCROLL
 
@@ -523,16 +584,23 @@ landingPageBackgroundAnimation();
 
 // ABOUT PAGE GSAP ANIMATIONS
 
-gsap.from('.scroller', {
-    scale: .9,
+gsap.from(".scroller", {
+    scale: 0.9,
     duration: 1.5,
     scrollTrigger: {
-        trigger: '.scroller',
-        start: 'top 75%',
+        trigger: ".scroller",
+        start: "top 75%",
     },
-})
+});
 
-function animateElementFromBottom(selector, markers = false, stagger = 0, startPosition = '77%', duration = 0.6, yOffset = 90) {
+function animateElementFromBottom(
+    selector,
+    markers = false,
+    stagger = 0,
+    startPosition = "77%",
+    duration = 0.6,
+    yOffset = 90
+) {
     gsap.from(selector, {
         y: yOffset,
         opacity: 0,
@@ -546,10 +614,10 @@ function animateElementFromBottom(selector, markers = false, stagger = 0, startP
     });
 }
 
-animateElementFromBottom('.paragraph p');
-animateElementFromBottom('.about-pg-subheading');
-animateElementFromBottom('.about-pg-heading');
+animateElementFromBottom(".paragraph p");
+animateElementFromBottom(".about-pg-subheading");
+animateElementFromBottom(".about-pg-heading");
 
-[0, 1, 2, 3, 4, 5].forEach(index => {
-    animateElementFromBottom(`#about-page-card-${index}`)
-})
+[0, 1, 2, 3, 4, 5].forEach((index) => {
+    animateElementFromBottom(`#about-page-card-${index}`);
+});

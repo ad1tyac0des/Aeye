@@ -37,17 +37,12 @@
     background: linear-gradient(to right, #000000, #161616);
 }
 
-@media (max-width:400px) {
-    .footer .footer-right-container .social-links .social-media-links {
-        margin-right: 2.8rem;
-    }
-}
-
 /* Button Effect 1 */
 .button-effect-1 {
     position: relative;
     overflow: hidden;
     transition: color .3s ease-in-out;
+    z-index: 1;
 }
 
 .button-effect-1::after {
@@ -150,4 +145,15 @@
 .hover-highlight-effect a:hover ~ a,
 .hover-highlight-effect a:has(~ a:hover) {
     color: gray;
+}
+
+/* Menu Icon */
+
+main nav .rotateMenuIcon .lines:nth-child(1){
+    transform: translateY(-2px) rotate(45deg);
+}
+
+main nav .rotateMenuIcon .lines:nth-child(2){
+    transform: translateY(-7px) rotate(-45deg);
+
 }

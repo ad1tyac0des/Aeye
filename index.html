@@ -12,7 +12,7 @@
 
 <body>
     <!-- Preloader -->
-    <!-- <div class="preloader w-full h-full overflow-hidden bg-black text-white fixed top-0 left-0 z-50">
+    <div class="preloader w-full h-full overflow-hidden bg-black text-white fixed top-0 left-0 z-50">
         <div
             class="heading1 absolute w-full flex justify-between items-center border-b border-solid border-white px-6 py-3 lg:px-14 lg:py-4">
             <h1 class="font-['Monument'] text-xl lg:text-3xl">Aeye</h1>
@@ -29,14 +29,15 @@
             <div class="progress-text text-[30vw] lg:text-[15vw] text-white tracking-wide font-['Gilroy'] leading-none">
                 0</div>
         </div>
-    </div> -->
+    </div>
+
     <main class="w-full h-screen">
         <!-- Landing Page -->
         <section id="home" class="landing-page w-full h-[93%] md:h-full flex flex-col bg-zinc-950 text-white px-3">
             <canvas id="backgroundCanvas" class="absolute inset-0 w-full h-full pointer-events-none"
                 aria-hidden="true"></canvas>
             <nav class="navbar w-full py-3 px-3 sm:py-6 sm:px-10 flex justify-between items-center relative z-10">
-                <h1 class="font-['Monument'] text-xl sm:text-2xl lg:text-4xl cursor-pointer">
+                <h1 class="nav-header font-['Monument'] text-xl sm:text-2xl lg:text-4xl relative z-[200] cursor-pointer">
                     Aeye
                 </h1>
                 <div class="links hidden md:flex md:gap-4 lg:gap-14 font-[Machina] rounded-sm px-6 py-2 bg-[#11111147] hover-highlight-effect">
@@ -49,13 +50,41 @@
                     class="button-effect-1 button hidden md:block font-[Gilroy] font-normal text-[1.4vw] text-white rounded-full border border-white px-5 py-0.5">
                     Get Started
                 </button>
-                <div class="menuIcon flex flex-col gap-1 pt-2 w-5 h-5 md:hidden">
-                    <div class="line1 w-5 h-px bg-white"></div>
-                    <div class="line2 w-5 h-px bg-white"></div>
+                <div class="menu-icon flex flex-col gap-1 pt-1.5 pb-1 w-5 h-5 md:hidden relative z-[200] ">
+                    <div class="line1 lines  w-5 h-px bg-white transition-transform duration-300 ease-in-out"></div>
+                    <div class="line2 lines w-5 h-px bg-white transition-transform duration-300 ease-in-out"></div>
+                </div>
+
+                <!-- Menu Page -->
+                <div
+                    class="menu-page w-screen h-full bg-white text-black fixed top-0 left-0 opacity-0 md:hidden z-[100] flex-col justify-between px-6 sm:px-10 ">
+                    <div class="menu-page-links flex flex-col gap-2 font-[Machina] mt-32">
+                        <a href="#" class="text-4xl">Home</a>
+                        <a href="#" class="text-4xl">About</a>
+                        <a href="#" class="text-4xl">Engage</a>
+                        <a href="#" class="text-4xl">News</a>
+                    </div>
+
+                    <div class="menu-social-links  flex flex-col  ">
+                        <p class="font-[Machina] text-2xl underline">hello@aeye.com</p>
+                        <div class="social-links my-8 ">
+                            <a href="#"
+                                class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Gt</a>
+                            <a href="#"
+                                class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Yt</a>
+                            <a href="#"
+                                class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Ig</a>
+                            <a href="#"
+                                class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Ln</a>
+                            <a href="#" class="font-[Machina] text-xl md:text-lg">Tw</a>
+
+                        </div>
+                    </div>
+
+
                 </div>
             </nav>
-            <div
-                class="landing-content w-full relative grow flex flex-col items-center justify-center text-center z-10">
+            <div class="landing-content w-full relative grow flex flex-col items-center justify-center text-center z-5">
                 <h1 class="font-[Machina] font-bold text-6xl leading-none uppercase lg:w-8/12 2xl:text-[5.5vw]">
                     Build Epic AI/ML & Web Apps With Us
                 </h1>
