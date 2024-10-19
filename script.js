@@ -13,7 +13,6 @@ function enableScroll() {
 function prealoder() {
     var preloader = document.querySelector(".preloader");
     var progressText = document.querySelector(".progress-text");
-
     var preloaderAnimation1 = function () {
         gsap.from(".heading1", {
             transform: "translateY(-100%)",
@@ -44,6 +43,34 @@ function prealoder() {
                 enableScroll();
             },
         });
+
+        gsap.from('.navbar', {
+            y: 200,
+            delay: 1.8
+        })
+
+        gsap.from('.landing-scroller', {
+            y: 30,
+            delay: 1.8
+        })
+
+        gsap.from('.landing-header', {
+            y: 20,
+            opacity: 0,
+            delay: 2
+        })
+
+        gsap.from('.landing-content>p', {
+            y: 40,
+            opacity: 0,
+            delay: 2.3
+        })
+
+        gsap.from('.join-us-button', {
+            y: 50,
+            opacity: 0,
+            delay: 2.5
+        })
     };
 
     function counter() {
@@ -60,6 +87,7 @@ function prealoder() {
             if (count === 100) {
                 clearInterval(progress);
                 preloaderAnimation2();
+
             }
         }, 20);
     }
