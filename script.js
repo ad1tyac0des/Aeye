@@ -204,7 +204,7 @@ function aboutPageCards() {
 
     CardsData.map((cardData, index) => {
         const whiteCard = `<div
-                        class="about-page-card lg:relative ${index == 0
+                        class="about-page-card group lg:relative ${index == 0
                 ? "lg:top-[15vw]"
                 : index == 3
                     ? "lg:top-[-8.5vw]"
@@ -219,7 +219,7 @@ function aboutPageCards() {
                                 ${cardData.title}
                             </h1>
                             <div
-                                class="about-page-card-btn w-20 md:w-24  h-20 md:h-24  rounded-full flex items-center justify-center p-6 md:p-7 bg-[#E3E3E3]">
+                                class="about-page-card-btn w-20 md:w-24 cursor-pointer h-20 md:h-24 rounded-full flex items-center justify-center p-6 md:p-7 bg-[#E3E3E3] group-hover:rotate-90 transition-transform duration-300">
                                 <img class="w-full h-full object-cover" src="assets/images/plusIcon.png">
                             </div>
                             <p
@@ -230,7 +230,7 @@ function aboutPageCards() {
                     </div>`;
 
         const grayCard = `<div
-                        class="about-page-card ${index == 2
+                        class="about-page-card group ${index == 2
                 ? "lg:mt-[12vw]"
                 : index == 5
                     ? "lg:mt-[-35vw]"
@@ -243,7 +243,7 @@ function aboutPageCards() {
                                 ${cardData.title}
                             </h1>
                             <div
-                                class="about-page-card-btn w-20 md:w-24  h-20 md:h-24  rounded-full flex items-center justify-center p-6 md:p-7 bg-[#FFFFFFF7]">
+                                class="about-page-card-btn w-20 md:w-24 cursor-pointer h-20 md:h-24 rounded-full flex items-center justify-center p-6 md:p-7 bg-[#FFFFF7] group-hover:rotate-90 transition-transform duration-300">
                                 <img class="w-full h-full object-cover" src="assets/images/plusIcon.png">
                             </div>
                             <p
