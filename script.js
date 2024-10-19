@@ -203,7 +203,7 @@ function aboutPageCards() {
     ];
 
     CardsData.map((cardData, index) => {
-        const whiteCard = `<div
+        const whiteCard = `<div id="about-page-card-${index}"
                         class="about-page-card group lg:relative ${index == 0
                 ? "lg:top-[15vw]"
                 : index == 3
@@ -229,7 +229,7 @@ function aboutPageCards() {
                         </div>
                     </div>`;
 
-        const grayCard = `<div
+        const grayCard = `<div id="about-page-card-${index}"
                         class="about-page-card group ${index == 2
                 ? "lg:mt-[12vw]"
                 : index == 5
@@ -520,3 +520,36 @@ function landingPageBackgroundAnimation() {
 }
 
 landingPageBackgroundAnimation();
+
+// ABOUT PAGE GSAP ANIMATIONS
+
+gsap.from('.scroller', {
+    scale: .9,
+    duration: 1.5,
+    scrollTrigger: {
+        trigger: '.scroller',
+        start: 'top 75%',
+    },
+})
+
+function animateElementFromBottom(selector, markers = false, stagger = 0, startPosition = '77%', duration = 0.6, yOffset = 90) {
+    gsap.from(selector, {
+        y: yOffset,
+        opacity: 0,
+        duration: duration,
+        stagger: stagger,
+        scrollTrigger: {
+            trigger: selector,
+            start: `top ${startPosition}`,
+            markers: markers,
+        },
+    });
+}
+
+animateElementFromBottom('.paragraph p');
+animateElementFromBottom('.about-pg-subheading');
+animateElementFromBottom('.about-pg-heading');
+
+[0, 1, 2, 3, 4, 5].forEach(index => {
+    animateElementFromBottom(`#about-page-card-${index}`)
+})
