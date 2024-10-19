@@ -1,29 +1,30 @@
-::selection{
+::selection {
     background-color: #fff;
     color: #111;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 2px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: #111;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: #929292;
 }
 
-.scroller-inline{
+.scroller-inline {
     animation: scroller 20s linear infinite;
 }
 
 @keyframes scroller {
-    from{
+    from {
         transform: translateX(0%);
     }
-    to{
+
+    to {
         transform: translateX(calc(-100% - 4px));
     }
 }
@@ -32,6 +33,12 @@
     background: linear-gradient(to right, #000000, #1a1a1a);
 }
 
-.about-page{
+.about-page {
     background: linear-gradient(to right, #000000, #161616);
+}
+
+@media (max-width:400px) {
+    .footer .footer-right-container .social-links .social-media-links {
+        margin-right: 2.8rem;
+    }
 }
