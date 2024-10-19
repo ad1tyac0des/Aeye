@@ -37,8 +37,18 @@
     background: linear-gradient(to right, #000000, #161616);
 }
 
-@media (max-width:400px) {
+/* @media (max-width:400px) {
     .footer .footer-right-container .social-links .social-media-links {
         margin-right: 2.8rem;
     }
+} */
+
+main nav .rotateMenuIcon .lines:nth-child(1){
+    transform: translateY(-2px) rotate(45deg);
 }
+
+main nav .rotateMenuIcon .lines:nth-child(2){
+    transform: translateY(-7px) rotate(-45deg);
+
+}
+

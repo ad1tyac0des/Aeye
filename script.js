@@ -1,17 +1,18 @@
 // PRELOADER
+
+function disableScroll() {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+}
+
+function enableScroll() {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+}
+
 function prealoder() {
     var preloader = document.querySelector(".preloader");
     var progressText = document.querySelector(".progress-text");
-
-    function disableScroll() {
-        document.body.style.overflow = "hidden";
-        document.documentElement.style.overflow = "hidden";
-    }
-
-    function enableScroll() {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
-    }
 
     var preloaderAnimation1 = function () {
         gsap.from(".heading1", {
@@ -520,3 +521,59 @@ function landingPageBackgroundAnimation() {
 }
 
 landingPageBackgroundAnimation();
+
+//MENU PAGE ANIMATION
+
+var menuPg = document.querySelector(".menu-page");
+var menuIcon = document.querySelector(".menu-icon");
+var menuLines = document.querySelectorAll(".lines");
+var navHeader = document.querySelector(".nav-header");
+var links = document.querySelectorAll(".menu-page-links");
+var socialLinks = document.querySelectorAll(".menu-social-links");
+
+var isMenuVisible = false;
+
+menuIcon.addEventListener("click", function () {
+    if (isMenuVisible) { 
+        links.forEach(link => link.style.opacity = 0); // Iterate over NodeList
+        socialLinks.forEach(link => link.style.opacity = 0); // Iterate over NodeList
+        menuPageOpenAnimation();
+        enableScroll()
+        menuIcon.classList.remove("rotateMenuIcon");
+    } else {
+        menuPg.style.display = "flex"; // Ensure the menu is visible
+        links.forEach(link => link.style.opacity = 1); // Iterate over NodeList
+        socialLinks.forEach(link => link.style.opacity = 1); // Iterate over NodeList
+        menuPageCloseAnimation();
+        disableScroll()
+        navHeader.style.color = "black";
+        menuIcon.classList.add("rotateMenuIcon");
+        menuLines.forEach(function (elem) {
+            elem.style.backgroundColor = "black";
+        });
+    }
+    isMenuVisible = !isMenuVisible;
+});
+
+function menuPageOpenAnimation() {
+    gsap.to(menuPg, {
+        y: '-100%',
+        duration: 0.5,
+        ease: "power1.inOut",
+        onComplete: function () {
+            menuPg.style.display = "none"; // Ensure the menu is hidden
+            menuLines.forEach(function (elem) {
+                elem.style.backgroundColor = "white";
+            });
+            navHeader.style.color = "white";
+        }
+    });
+}
+
+function menuPageCloseAnimation() {
+    gsap.fromTo(menuPg,
+        { y: '-100%', opacity: 0 }, // Start state
+        { y: '0%', opacity: 1, duration: 0.5, ease: "power1.inOut" } // End state
+    );
+}
+
