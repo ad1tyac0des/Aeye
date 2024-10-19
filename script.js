@@ -624,3 +624,5 @@ animateElementFromBottom(".about-pg-heading");
 
 animateElementFromBottom(".engage-pg-subheading", false, 0, '90%', .6, 80);
 animateElementFromBottom(".engage-pg-heading");
+
+animateElementFromBottom(".subscription-container", false, 0, '85%', .6, 100);
