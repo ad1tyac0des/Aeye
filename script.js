@@ -621,3 +621,6 @@ animateElementFromBottom(".about-pg-heading");
 [0, 1, 2, 3, 4, 5].forEach((index) => {
     animateElementFromBottom(`#about-page-card-${index}`);
 });
+
+animateElementFromBottom(".engage-pg-subheading", false, 0, '90%', .6, 80);
+animateElementFromBottom(".engage-pg-heading");
