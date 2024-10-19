@@ -12,7 +12,7 @@
 
 <body>
     <!-- Preloader -->
-    <div class="preloader w-full h-full overflow-hidden bg-black text-white fixed top-0 left-0 z-50">
+    <!-- <div class="preloader w-full h-full overflow-hidden bg-black text-white fixed top-0 left-0 z-50">
         <div
             class="heading1 absolute w-full flex justify-between items-center border-b border-solid border-white px-6 py-3 lg:px-14 lg:py-4">
             <h1 class="font-['Monument'] text-xl lg:text-3xl">Aeye</h1>
@@ -29,7 +29,7 @@
             <div class="progress-text text-[30vw] lg:text-[15vw] text-white tracking-wide font-['Gilroy'] leading-none">
                 0</div>
         </div>
-    </div>
+    </div> -->
     <main class="w-full h-screen">
         <!-- Landing Page -->
         <section id="home" class="landing-page w-full h-[93%] md:h-full flex flex-col bg-zinc-950 text-white px-3">
@@ -120,7 +120,7 @@
                     class="font-[Machina] absolute right-[-30px] bottom-[50%] lg:bottom-[40%] -rotate-90 bg-white text-black px-1 2xl:text-xl 2xl:absolute 2xl:right-[-40px]">Our
                     Vision</span>
             </div>
-            <div class="about-page-bottom min-h-[200vh] flex flex-col items-center justify-center bg-[#DFDFDF]">
+            <div id="why-join-us" class="about-page-bottom min-h-[200vh] flex flex-col items-center justify-center bg-[#DFDFDF]">
                 <div class="about-page-bottom-heading-container w-full pt-[.1px] pb-[10vw]">
                     <div class="w-[100%] md:w-[90%] h-fit md:h-[100vh] flex items-center mt-14 md:mt-0 lg:mt-[4vw]">
                         <div class="w-full h-fit px-2 md:px-10 text-black">
@@ -211,7 +211,7 @@
         </section>
 
         <!-- Footer Page -->
-        <section
+        <section id="footer"
             class="footer w-full h-fit md:h-[85%] lg:h-[100%] bg-black text-white px-5 md:px-8 lg:px-0 py-8 md:py-10 pb-4 md:pb-10 flex flex-col gap-14">
             <div class="footer-header-mobile md:hidden  border-b border-fuchsia-10 pb-8">
                 <h1 class="font-[Monument] text-3xl ">Aeye</h1>
@@ -228,12 +228,12 @@
                         <div class="footer-line1 hidden  md:block w-full h-[0.5px] bg-white absolute bottom-0"></div>
 
                     </div>
-                    <div class="footer-menu-links flex flex-col lg:gap-1 lg:mb-8 ">
-                        <a href="#" class="text-3xl md:text-2xl lg:text-3xl ">Home</a>
-                        <a href="#" class="text-3xl md:text-2xl lg:text-3xl ">About</a>
-                        <a href="#" class="text-3xl md:text-2xl lg:text-3xl ">Why Join Us</a>
-                        <a href="#" class="text-3xl md:text-2xl lg:text-3xl ">Engage</a>
-                        <a href="#" class="text-3xl md:text-2xl lg:text-3xl ">News</a>
+                    <div class="footer-menu-links flex flex-col lg:gap-1 lg:mb-8 hover-highlight-effect">
+                        <a href="#home" class="text-3xl md:text-2xl lg:text-3xl">Home</a>
+                        <a href="#about" class="text-3xl md:text-2xl lg:text-3xl">About</a>
+                        <a href="#why-join-us" class="text-3xl md:text-2xl lg:text-3xl">Why Join Us</a>
+                        <a href="#engage" class="text-3xl md:text-2xl lg:text-3xl">Engage</a>
+                        <a href="#news" class="text-3xl md:text-2xl lg:text-3xl">News</a>
                     </div>
                 </div>
                 <div class="footer-right-container md:flex md:flex-col md:justify-between md:w-[60%]">
@@ -242,17 +242,17 @@
                         <div class="footer-line2 hidden  md:block w-full h-[0.5px] bg-white absolute bottom-0"></div>
 
                     </div>
-                    <div class="footer-social-links  md:flex md:flex-col md:items-end lg:pr-8 ">
-                        <div class="social-links mt-10 sm:mt-12 md:mt-0 md:text-right ">
-                            <a href="#"
+                    <div class="footer-social-links  md:flex md:flex-col md:items-end lg:pr-8">
+                        <div class="social-links mt-10 sm:mt-12 md:mt-0 md:text-right  hover-highlight-effect">
+                            <a href="#footer"
                                 class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Gt</a>
-                            <a href="#"
+                            <a href="#footer"
                                 class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Yt</a>
-                            <a href="#"
+                            <a href="#footer"
                                 class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Ig</a>
-                            <a href="#"
+                            <a href="#footer"
                                 class="font-[Machina] text-xl md:text-lg lg:text-2xl mr-[3.5rem] md:mr-[2rem] lg:mr-[4rem] social-media-links">Ln</a>
-                            <a href="#" class="font-[Machina] text-xl md:text-lg">Tw</a>
+                            <a href="#footer" class="font-[Machina] text-xl md:text-lg">Tw</a>
                             <div
                                 class="empty-container hidden md:block py-6 lg:py-10 rounded-sm  w-[100%] bg-[#CFCFCF] mt-5 lg:mt-10 mb-3 lg:mb-6">
 

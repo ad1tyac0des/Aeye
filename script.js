@@ -68,7 +68,7 @@ function prealoder() {
     disableScroll();
 }
 
-prealoder();
+// prealoder();
 
 // HORIZONTAL SCROLL
 

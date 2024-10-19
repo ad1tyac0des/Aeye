@@ -133,3 +133,21 @@
 .engage-page-card-btn:hover {
     color: #f6f6f6;
 }
+
+/* Hover Highlight Effect */
+
+.hover-highlight-effect a {
+    color: white;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.hover-highlight-effect a:hover {
+    z-index: 2;
+}
+
+.hover-highlight-effect a:hover ~ a,
+.hover-highlight-effect a:has(~ a:hover) {
+    color: gray;
+}
