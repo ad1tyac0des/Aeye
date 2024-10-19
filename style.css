@@ -27,3 +27,9 @@
         transform: translateX(calc(-100% - 4px));
     }
 }
+@media (max-width:400px) {
+    .footer .footer-right-container .social-links .social-media-links{
+        
+        margin-right: 2.8rem;
+    }
+}
