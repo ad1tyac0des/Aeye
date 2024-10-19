@@ -124,7 +124,7 @@ function scrollHorizontal() {
                                     ${cardData.title}
                                 </h1>
                                 <div
-                                    class="engage-page-card-btn w-fit aspect-square rounded-full flex items-center justify-center px-4 bg-[#E3E3E3]">
+                                    class="engage-page-card-btn cursor-pointer w-fit aspect-square rounded-full flex items-center justify-center px-4 bg-[#E3E3E3]">
                                     <button class="font-[Gilroy] font-semibold text-2xl md:text-2xl lg:text-[1.67rem] min-[1600px]:text-3xl">
                                         ${cardData.btnText}
                                     </button>
