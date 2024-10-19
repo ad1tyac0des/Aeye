@@ -582,7 +582,8 @@ function landingPageBackgroundAnimation() {
 
 landingPageBackgroundAnimation();
 
-// ABOUT PAGE GSAP ANIMATIONS
+
+// GSAP SCROLL ANIMATIONS
 
 gsap.from(".scroller", {
     scale: 0.9,
@@ -599,13 +600,15 @@ function animateElementFromBottom(
     stagger = 0,
     startPosition = "77%",
     duration = 0.6,
-    yOffset = 90
+    yOffset = 90,
+    delay = 0
 ) {
     gsap.from(selector, {
         y: yOffset,
         opacity: 0,
         duration: duration,
         stagger: stagger,
+        delay: delay,
         scrollTrigger: {
             trigger: selector,
             start: `top ${startPosition}`,
@@ -626,3 +629,19 @@ animateElementFromBottom(".engage-pg-subheading", false, 0, '90%', .6, 80);
 animateElementFromBottom(".engage-pg-heading");
 
 animateElementFromBottom(".subscription-container", false, 0, '85%', .6, 100);
+
+animateElementFromBottom(".footer-para", false, 0, '85%', .6);
+animateElementFromBottom(".footer-header-text", false, 0, '85%', .6, 110, .2);
+
+
+[1, 2].forEach((i) => {
+    gsap.from(`.footer-line${i}`, {
+        width: 0,
+        duration: .6,
+        delay: .2,
+        scrollTrigger: {
+            trigger: `.footer-line${i}`,
+            start: "top 85%",
+        },
+    });
+})
