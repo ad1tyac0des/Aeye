@@ -31,8 +31,9 @@
     </div>
     <main class="w-full h-screen">
         <!-- Landing Page -->
-        <section class="landing-page w-full h-full flex flex-col bg-zinc-950 text-white px-3">
-            <nav class="navbar w-full py-3 px-3 sm:py-6 sm:px-10 flex justify-between items-center">
+        <section class="landing-page w-full h-[93%] md:h-full flex flex-col bg-zinc-950 text-white px-3">
+            <canvas id="backgroundCanvas" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+            <nav class="navbar w-full py-3 px-3 sm:py-6 sm:px-10 flex justify-between items-center relative z-10">
                 <h1 class="font-['Monument'] text-xl sm:text-2xl lg:text-4xl">
                     Aeye
                 </h1>
@@ -51,7 +52,7 @@
                     <div class="line2 w-5 h-px bg-white"></div>
                 </div>
             </nav>
-            <div class="landing-content w-full relative grow flex flex-col items-center justify-center text-center">
+            <div class="landing-content w-full relative grow flex flex-col items-center justify-center text-center z-10">
                 <h1 class="font-[Machina] font-bold text-6xl leading-none uppercase lg:w-8/12 2xl:text-[5.5vw]">
                     Build Epic AI/ML & Web Apps With Us
                 </h1>
@@ -63,7 +64,7 @@
                     class="font-[Gilroy] font-normal uppercase text-lg lg:text-xl 2xl:text-[1.7rem] bg-transparent border-2 border-white text-white rounded-full px-5 py-1 pt-2 lg:pt-2 lg:pb-2 lg:px-6 2xl:py-2 2xl:px-6">
                     Join Us
                 </button>
-                <span class="text-[#999898] absolute bottom-3 opacity-30 2xl:text-xl">scroll to explore</span>
+                <span class="text-[#999898] absolute bottom-3 opacity-30 2xl:text-xl hidden md:block">scroll to explore</span>
             </div>
         </section>
 

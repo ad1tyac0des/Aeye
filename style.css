@@ -27,3 +27,11 @@
         transform: translateX(calc(-100% - 4px));
     }
 }
+
+#backgroundCanvas {
+    background: linear-gradient(to right, #000000, #1a1a1a);
+}
+
+.about-page{
+    background: linear-gradient(to right, #000000, #161616);
+}

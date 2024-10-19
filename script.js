@@ -294,3 +294,229 @@ function textFadeEffect() {
 }
 
 textFadeEffect();
+
+// LANDING PAGE BACKGROUND ANIMATION
+
+function landingPageBackgroundAnimation() {
+    // Configuration variables
+    const GRID_SIZE = 50; // Size of each grid cell in pixels
+    const BASE_OPACITY = 0.09; // Base opacity for grid lines
+    const MAIN_CONTENT_OPACITY = 0.095; // Opacity for grid lines in the main content area
+    const ANIMATION_DURATION = 0.6; // Duration of the ray animation in seconds
+    const ANIMATION_INTERVAL = 2; // Interval between animations in seconds
+    const RAY_COLOR = "#dadada"; // Color of the ray
+    const RAY_WIDTH = 1; // Width of the ray in pixels
+    const RAY_LENGTH = 300; // Length of the ray in pixels
+    const NUM_RAYS = 2; // Number of rays to animate simultaneously
+    const RAY_DELAY = 0.2; // Delay between ray appearances in seconds
+
+    // Horizontal ray controls
+    const H_RAY_START_OFFSET = 500; // Distance from the left of the screen to begin the horizontal ray (-1 for default behavior)
+    const H_RAY_END_OFFSET = -100; // Distance from the right of the screen to end the horizontal ray (-1 for default behavior)
+    const H_FADE_IN_DURATION = 0.1; // Duration of the fade-in effect for horizontal rays in seconds
+    const H_FADE_OUT_DURATION = 0.1; // Duration of the fade-out effect for horizontal rays in seconds
+
+    // Vertical ray controls
+    const V_RAY_START_OFFSET = 300; // Distance from the top of the screen to begin the vertical ray (-1 for default behavior)
+    const V_RAY_END_OFFSET = -50; // Distance from the bottom of the screen to end the vertical ray (-1 for default behavior)
+    const V_FADE_IN_DURATION = 0.12; // Duration of the fade-in effect for vertical rays in seconds
+    const V_FADE_OUT_DURATION = 0.12; // Duration of the fade-out effect for vertical rays in seconds
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("backgroundCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let horizontalLines = [];
+        let verticalLines = [];
+        let activeRays = [];
+        let isAnimating = false;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initializeLines();
+        }
+
+        function initializeLines() {
+            horizontalLines = [];
+            verticalLines = [];
+
+            for (let y = 0; y <= canvas.height; y += GRID_SIZE) {
+                horizontalLines.push({ y, opacity: BASE_OPACITY });
+            }
+
+            for (let x = 0; x <= canvas.width; x += GRID_SIZE) {
+                verticalLines.push({ x, opacity: BASE_OPACITY });
+            }
+        }
+
+        function drawLine(x1, y1, x2, y2, opacity) {
+            const centerX = (x1 + x2) / 2;
+            const isMainContent =
+                centerX > canvas.width * 0.2 && centerX < canvas.width * 0.8;
+
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.strokeStyle = `rgba(255, 255, 255, ${isMainContent ? MAIN_CONTENT_OPACITY : opacity
+                })`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+
+        function drawRay(x1, y1, x2, y2, opacity) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.strokeStyle = `rgba(${parseInt(
+                RAY_COLOR.slice(1, 3),
+                16
+            )}, ${parseInt(RAY_COLOR.slice(3, 5), 16)}, ${parseInt(
+                RAY_COLOR.slice(5, 7),
+                16
+            )}, ${opacity})`;
+            ctx.lineWidth = RAY_WIDTH;
+            ctx.stroke();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            horizontalLines.forEach((line) => {
+                drawLine(0, line.y, canvas.width, line.y, line.opacity);
+            });
+
+            verticalLines.forEach((line) => {
+                drawLine(line.x, 0, line.x, canvas.height, line.opacity);
+            });
+
+            ctx.save();
+            ctx.globalCompositeOperation = "lighter";
+            activeRays.forEach((ray) => {
+                const tailStart = ray.isHorizontal
+                    ? { x: Math.max(ray.start.x - RAY_LENGTH, 0), y: ray.start.y }
+                    : { x: ray.start.x, y: Math.max(ray.start.y - RAY_LENGTH, 0) };
+                drawRay(
+                    tailStart.x,
+                    tailStart.y,
+                    ray.start.x,
+                    ray.start.y,
+                    ray.opacity
+                );
+            });
+            ctx.restore();
+
+            requestAnimationFrame(animate);
+        }
+
+        function createRay() {
+            const isHorizontal = Math.random() < 0.5;
+            const lineIndex = isHorizontal
+                ? Math.floor(Math.random() * horizontalLines.length)
+                : Math.floor(Math.random() * verticalLines.length);
+            const line = isHorizontal
+                ? horizontalLines[lineIndex]
+                : verticalLines[lineIndex];
+
+            const startOffset = isHorizontal
+                ? H_RAY_START_OFFSET === -1
+                    ? -RAY_LENGTH
+                    : H_RAY_START_OFFSET
+                : V_RAY_START_OFFSET === -1
+                    ? -RAY_LENGTH
+                    : V_RAY_START_OFFSET;
+            const endOffset = isHorizontal
+                ? H_RAY_END_OFFSET === -1
+                    ? RAY_LENGTH
+                    : H_RAY_END_OFFSET
+                : V_RAY_END_OFFSET === -1
+                    ? RAY_LENGTH
+                    : V_RAY_END_OFFSET;
+
+            const rayStart = {
+                x: isHorizontal ? startOffset : line.x,
+                y: isHorizontal ? line.y : startOffset,
+            };
+
+            const rayEnd = {
+                x: isHorizontal ? canvas.width + endOffset : line.x,
+                y: isHorizontal ? line.y : canvas.height + endOffset,
+            };
+
+            return { start: rayStart, end: rayEnd, isHorizontal, opacity: 0 };
+        }
+
+        function animateRay() {
+            if (activeRays.length < NUM_RAYS && isAnimating) {
+                const newRay = createRay();
+                activeRays.push(newRay);
+
+                const fadeInDuration = newRay.isHorizontal
+                    ? H_FADE_IN_DURATION
+                    : V_FADE_IN_DURATION;
+                const fadeOutDuration = newRay.isHorizontal
+                    ? H_FADE_OUT_DURATION
+                    : V_FADE_OUT_DURATION;
+
+                const timeline = gsap.timeline();
+
+                // Fade in
+                timeline.to(newRay, {
+                    opacity: 1,
+                    duration: fadeInDuration,
+                    ease: "power1.inOut",
+                });
+
+                // Move across screen
+                timeline.to(
+                    newRay.start,
+                    {
+                        x: newRay.end.x,
+                        y: newRay.end.y,
+                        duration: ANIMATION_DURATION - fadeInDuration - fadeOutDuration,
+                        ease: "none",
+                    },
+                    "-=" + fadeInDuration
+                );
+
+                // Fade out
+                timeline.to(
+                    newRay,
+                    {
+                        opacity: 0,
+                        duration: fadeOutDuration,
+                        ease: "power1.inOut",
+                        onComplete: () => {
+                            const index = activeRays.indexOf(newRay);
+                            if (index > -1) {
+                                activeRays.splice(index, 1);
+                            }
+                            if (activeRays.length === 0 && isAnimating) {
+                                isAnimating = false;
+                                gsap.delayedCall(ANIMATION_INTERVAL, startNewAnimationCycle);
+                            }
+                        },
+                    },
+                    "-=" + fadeOutDuration
+                );
+
+                if (activeRays.length < NUM_RAYS) {
+                    gsap.delayedCall(RAY_DELAY, animateRay);
+                }
+            }
+        }
+
+        function startNewAnimationCycle() {
+            isAnimating = true;
+            animateRay();
+        }
+
+        resizeCanvas();
+        animate();
+        startNewAnimationCycle();
+
+        window.addEventListener("resize", resizeCanvas);
+    });
+}
+
+landingPageBackgroundAnimation();
